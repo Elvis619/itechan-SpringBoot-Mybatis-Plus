@@ -25,9 +25,12 @@ public class ImagesController {
     }
     @GetMapping("/horizontal")
     public List<ImagesVO> imagesVOList(){
-        QueryWrapper<ImagesVO> wrapper = new QueryWrapper<>();
-        wrapper.ge("id",4).le("id",8);
-        List<ImagesVO> horizontalList = mapper.imgList();
+        List<ImagesVO> horizontalList = mapper.hengList();
         return horizontalList;
+    }
+    @GetMapping("/vertical")
+    public List<ImagesVO> suImgList(){
+        List<ImagesVO> verticalList = mapper.suList();
+        return verticalList;
     }
 }
