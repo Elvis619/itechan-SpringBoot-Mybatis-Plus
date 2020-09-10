@@ -11,8 +11,12 @@ import java.util.List;
 
 @Repository
 public interface ImagesMapper extends BaseMapper<Images> {
-    @Select("SELECT i.`id`,g.`g_name`,g.`g_price`,i.`img_src` FROM images i,goods g WHERE i.`gid` = g.`id` AND i.id >=4 AND i.id <=8 ")
+    @Select("SELECT g.`g_name`,g.`g_price`,i.* FROM images i,goods g WHERE i.`gid` = g.`id` AND i.id <=3 ")
+    List<ImagesVO> swiperList();
+    @Select("SELECT g.`g_name`,g.`g_price`,i.* FROM images i,goods g WHERE i.`gid` = g.`id` AND i.id >=4 AND i.id <=8 ")
     List<ImagesVO> hengList();
-    @Select("SELECT i.`id`,g.`g_name`,g.`g_price`,i.`img_src` FROM images i,goods g WHERE i.`gid` = g.`id` AND i.id >=9 AND i.id <=14 ")
+    @Select("SELECT g.`g_name`,g.`g_price`,i.* FROM images i,goods g WHERE i.`gid` = g.`id` AND i.id >=9 AND i.id <=14 ")
     List<ImagesVO> suList();
+    @Select("SELECT g.`g_name`,g.`g_price`,i.* FROM images i,goods g WHERE i.`gid` = g.`id`")
+    List<ImagesVO> allList();
 }
