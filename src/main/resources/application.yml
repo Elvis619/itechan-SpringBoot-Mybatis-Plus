@@ -6,5 +6,9 @@ spring:
     password: root
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**Mapper.xml
+  global-config:
+    db-config:
+      logic-not-delete-value: 1
+      logic-delete-value: 2
 server:
   port: 8888

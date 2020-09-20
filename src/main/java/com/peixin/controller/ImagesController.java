@@ -38,8 +38,15 @@ public class ImagesController {
         return detail;
     }
     @GetMapping("/findAll")
-    public List<ImagesVO>findAll(){
+    public List<ImagesVO> findAll(){
         List<ImagesVO> allList = mapper.allList();
         return allList;
+    }
+    @GetMapping("/findByGid/{gid}")
+    public List<Images> findByGid(@PathVariable("gid") Integer gid){
+        QueryWrapper wrapper = new QueryWrapper();
+        wrapper.eq("gid",gid);
+        List<Images> list = mapper.selectList(wrapper);
+        return list;
     }
 }

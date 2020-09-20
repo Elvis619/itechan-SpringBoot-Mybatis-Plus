@@ -8,30 +8,34 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 /**
- * 订单基本信息
+ *订单详情列表
  */
+
 @Data
-public class Orders {
+public class OrdersDetail {
     @TableId(type = IdType.AUTO)
     private Integer id;
 
-    private BigDecimal totalPrice; //订单金额
-    private Integer uid;          //用户姓名
-    private String orderSn;       //订单编号
+    private Integer goodsId; //产品ID
 
-    private Integer state;       //订单状态
+    private String name; //产品名字
 
-    private Integer addressId;   //收货人的地址id
+    private String imgSrc;
 
-//    private Address address;     //收货人地址对象
+    private Integer ordersId; //订单编号
 
+    private Integer count; //购买数量
+
+    private BigDecimal price; //单价
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
-    @TableField(exist = false)
-    private List<OrdersDetail> ordersDetailList;
+
+
+
+
+
 }
