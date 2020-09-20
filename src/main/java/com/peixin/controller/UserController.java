@@ -83,5 +83,6 @@ public class UserController {
     public Address addressById(@PathVariable("id") Integer id){
         Address address = addressMapper.selectById(id);
         return address;
+
     }
 }
